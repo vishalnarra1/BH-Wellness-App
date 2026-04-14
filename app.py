@@ -1227,9 +1227,515 @@ elif page == "⚡ Stressor Topics":
         </div>
         """, unsafe_allow_html=True)
 
-elif page == "🧘 Yoga & Meditation":
-    st.title("Yoga and Meditation")
-    st.info("This page is coming soon!")
+elif page == "🧘 Yoga and Meditation":
+
+    st.markdown("""
+    <style>
+    .yoga-hero {
+        background: linear-gradient(135deg, #3b1f6b, #1a6b5e);
+        border-radius: 20px;
+        padding: 36px 40px;
+        margin-bottom: 28px;
+        text-align: center;
+    }
+    .yoga-hero h1 { color: white; font-size: 2.2em; margin: 0 0 8px 0; }
+    .yoga-hero p { color: rgba(255,255,255,0.85); font-size: 1.1em; margin: 0; }
+    .yoga-section {
+        background: #f8fafc;
+        border-radius: 16px;
+        padding: 24px 28px;
+        margin-bottom: 20px;
+        border: 1px solid #e2e8f0;
+    }
+    .yoga-section h3 { margin-top: 0; }
+    .pose-card {
+        background: white;
+        border-radius: 12px;
+        padding: 16px;
+        border: 1px solid #e2e8f0;
+        margin-bottom: 16px;
+    }
+    .pose-card h4 { margin: 10px 0 6px 0; color: #3b1f6b; font-size: 1em; }
+    .pose-card p { color: #555; font-size: 0.9em; margin: 0; line-height: 1.6; }
+    .pose-card img { width: 100%; border-radius: 8px; object-fit: cover; height: 180px; }
+    .pose-timer {
+        background: #f0f4ff;
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 0.85em;
+        color: #3b1f6b;
+        margin-top: 8px;
+        font-weight: 600;
+    }
+    .breathing-circle {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #89f7fe, #66a6ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        font-size: 1.1em;
+        font-weight: 700;
+        color: white;
+        text-align: center;
+        transition: transform 4s ease-in-out;
+    }
+    .mindfulness-card {
+        background: white;
+        border-radius: 10px;
+        padding: 14px 16px;
+        border: 1px solid #e2e8f0;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 0.95em;
+        line-height: 1.6;
+    }
+    .mindfulness-icon { font-size: 1.3em; flex-shrink: 0; }
+    </style>
+
+    <div class="yoga-hero">
+        <h1>🧘 Yoga and Meditation</h1>
+        <p>Slow down, breathe, and take care of your mind and body.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    tab1, tab2, tab3 = st.tabs(["🧘 Yoga Flows", "🌬️ Breathing and Meditation", "🌿 Daily Mindfulness"])
+
+    with tab1:
+        st.markdown(" ")
+        st.markdown("### Select a Yoga Style:")
+        st.markdown(" ")
+
+        col1, col2, col3, col4, col5 = st.columns(5)
+        with col1:
+            if st.button("🌱 Beginner", use_container_width=True):
+                st.session_state["yoga"] = "beginner"
+        with col2:
+            if st.button("😮‍💨 Stress Relief", use_container_width=True):
+                st.session_state["yoga"] = "stress"
+        with col3:
+            if st.button("☀️ Morning Energy", use_container_width=True):
+                st.session_state["yoga"] = "morning"
+        with col4:
+            if st.button("🌙 Bedtime", use_container_width=True):
+                st.session_state["yoga"] = "bedtime"
+        with col5:
+            if st.button("💺 Desk Stretches", use_container_width=True):
+                st.session_state["yoga"] = "desk"
+
+        st.markdown("---")
+
+        if "yoga" not in st.session_state:
+            st.markdown("""
+            <div style="text-align:center; padding: 40px 20px; color: #888;">
+                <div style="font-size: 2.5em;">👆</div>
+                <p style="font-size: 1.05em; margin-top: 12px;">Select a yoga style above to get started.</p>
+            </div>
+            """, unsafe_allow_html=True)
+        else:
+            yoga_flows = {
+                "beginner": {
+                    "title": "🌱 Beginner Yoga",
+                    "description": "Perfect if you have never done yoga before. These foundational poses build body awareness, flexibility, and calm. Move slowly and focus on your breath throughout.",
+                    "duration": "20 to 30 minutes",
+                    "poses": [
+                        {
+                            "name": "Mountain Pose",
+                            "image": "assets/mountain_pose.jpg",
+                            "hold": "30 seconds",
+                            "instructions": "Stand tall with feet together, arms at your sides. Press all four corners of your feet into the ground, engage your thighs, and relax your shoulders down away from your ears. Breathe deeply and feel grounded."
+                        },
+                        {
+                            "name": "Cat Cow Pose",
+                            "image": "assets/cat_cow_pose.jpg",
+                            "hold": "60 seconds",
+                            "instructions": "Start on hands and knees. On an inhale, drop your belly, lift your chest and tailbone upward (cow). On an exhale, round your spine toward the ceiling and tuck your chin (cat). Flow between the two with your breath."
+                        },
+                        {
+                            "name": "Child's Pose",
+                            "image": "assets/childs_pose.jpg",
+                            "hold": "45 seconds",
+                            "instructions": "From hands and knees, sit your hips back toward your heels and stretch your arms forward on the mat. Rest your forehead down and breathe into your back. This is your resting pose and you can return to it anytime."
+                        },
+                        {
+                            "name": "Downward Dog",
+                            "image": "assets/downward_dog.jpg",
+                            "hold": "45 seconds",
+                            "instructions": "From hands and knees, tuck your toes and lift your hips up and back, forming an inverted V shape. Press your palms firmly into the mat, keep a slight bend in your knees, and let your head hang naturally."
+                        },
+                        {
+                            "name": "Warrior One",
+                            "image": "assets/warrior_one.jpg",
+                            "hold": "30 seconds each side",
+                            "instructions": "Step your right foot forward between your hands and rise up. Bend your front knee to 90 degrees, keep your back leg straight, and raise your arms overhead. Square your hips forward and breathe steadily. Repeat on the left side."
+                        }
+                    ]
+                },
+                "stress": {
+                    "title": "😮‍💨 Stress Relief Yoga",
+                    "description": "Designed specifically to release the tension that builds up from long study sessions, screens, and a busy schedule. These poses target the areas where stress lives in your body.",
+                    "duration": "25 to 35 minutes",
+                    "poses": [
+                        {
+                            "name": "Standing Forward Fold",
+                            "image": "assets/forward_fold.jpg",
+                            "hold": "60 seconds",
+                            "instructions": "Stand with feet hip width apart and slowly hinge forward at the hips, letting your upper body hang heavy. Bend your knees generously if needed. Let your head and arms dangle and breathe into the stretch in your back and hamstrings."
+                        },
+                        {
+                            "name": "Seated Spinal Twist",
+                            "image": "assets/spinal_twist.jpg",
+                            "hold": "45 seconds each side",
+                            "instructions": "Sit on the floor with legs extended. Bend your right knee and cross it over your left leg, placing your foot flat on the floor. Place your right hand behind you and hook your left elbow outside your right knee. Gently twist to the right and breathe deeply."
+                        },
+                        {
+                            "name": "Pigeon Pose",
+                            "image": "assets/pigeon_pose.jpg",
+                            "hold": "90 seconds each side",
+                            "instructions": "From downward dog, bring your right knee forward and place it behind your right wrist at an angle. Extend your left leg straight back. Lower your hips toward the floor and fold forward over your front leg. This deeply releases the hips where a lot of stress is stored."
+                        },
+                        {
+                            "name": "Legs Up The Wall",
+                            "image": "assets/legs_up_wall.jpg",
+                            "hold": "3 to 5 minutes",
+                            "instructions": "Sit sideways next to a wall and swing your legs up as you lie back. Let your legs rest against the wall and your arms relax at your sides. Close your eyes and breathe slowly. This pose calms the nervous system and is one of the most restorative poses you can do."
+                        },
+                        {
+                            "name": "Corpse Pose",
+                            "image": "assets/corpse_pose.jpg",
+                            "hold": "3 to 5 minutes",
+                            "instructions": "Lie flat on your back with arms slightly away from your body, palms facing up. Close your eyes and let your body completely relax into the floor. Breathe naturally and allow your mind to settle. Do not skip this pose as it is where your body integrates the practice."
+                        }
+                    ]
+                },
+                "morning": {
+                    "title": "☀️ Morning Energy Yoga",
+                    "description": "A short and energizing flow to wake up your body and set a positive tone for the day. You do not need to be a morning person to benefit from this sequence.",
+                    "duration": "15 to 20 minutes",
+                    "poses": [
+                        {
+                            "name": "Sun Salutation",
+                            "image": "assets/sun_salutation.jpg",
+                            "hold": "Flow through 3 rounds",
+                            "instructions": "Begin standing, inhale arms overhead, exhale fold forward, step back to plank, lower to the floor, inhale into cobra, exhale to downward dog, step forward, inhale rise up, exhale hands to heart. This sequence warms up your entire body and is the foundation of many yoga practices."
+                        },
+                        {
+                            "name": "Cobra Pose",
+                            "image": "assets/cobra_pose.jpg",
+                            "hold": "30 seconds",
+                            "instructions": "Lie face down with hands under your shoulders. Press into your palms and lift your chest off the floor, keeping your elbows slightly bent and your shoulders away from your ears. Open your chest and breathe into the front of your body."
+                        },
+                        {
+                            "name": "Low Lunge",
+                            "image": "assets/low_lunge.jpg",
+                            "hold": "45 seconds each side",
+                            "instructions": "Step your right foot forward between your hands and lower your left knee to the floor. Sink your hips forward and down while lifting your chest and sweeping your arms overhead. Feel the stretch through your hip flexors which tighten from long hours of sitting."
+                        },
+                        {
+                            "name": "Warrior Two",
+                            "image": "assets/warrior_two.jpg",
+                            "hold": "45 seconds each side",
+                            "instructions": "Step your feet wide apart. Turn your right foot out 90 degrees and bend that knee to 90 degrees. Extend your arms out to the sides at shoulder height and gaze over your front hand. Feel strong, rooted, and energized."
+                        },
+                        {
+                            "name": "Upward Dog",
+                            "image": "assets/upward_dog.jpg",
+                            "hold": "30 seconds",
+                            "instructions": "Lie face down, place hands under shoulders, and press up to straighten your arms while lifting your thighs off the floor. Roll your shoulders back, open your chest wide, and gaze forward or slightly upward. This is a powerful chest and spine opener."
+                        }
+                    ]
+                },
+                "bedtime": {
+                    "title": "🌙 Bedtime and Restorative Yoga",
+                    "description": "Gentle poses to help you unwind, release the day, and prepare your body and mind for deep sleep. Move slowly and let gravity do the work.",
+                    "duration": "20 to 30 minutes",
+                    "poses": [
+                        {
+                            "name": "Seated Forward Bend",
+                            "image": "assets/seated_forward_bend.jpg",
+                            "hold": "90 seconds",
+                            "instructions": "Sit with legs extended straight in front of you. Inhale to lengthen your spine, then exhale and slowly fold forward, reaching toward your feet. Do not force it. Let your back round and your head hang heavy. Breathe into the backs of your legs and lower back."
+                        },
+                        {
+                            "name": "Supine Spinal Twist",
+                            "image": "assets/supine_twist.jpg",
+                            "hold": "90 seconds each side",
+                            "instructions": "Lie on your back, hug your right knee to your chest, then guide it across your body to the left while extending your right arm out to the side. Look right if comfortable. Let gravity gently deepen the twist with each exhale. Switch sides."
+                        },
+                        {
+                            "name": "Happy Baby",
+                            "image": "assets/happy_baby.jpg",
+                            "hold": "60 seconds",
+                            "instructions": "Lie on your back and hug both knees to your chest. Grab the outer edges of your feet and open your knees toward your armpits. Gently rock side to side if that feels good. This releases the hips and lower back beautifully."
+                        },
+                        {
+                            "name": "Butterfly Pose",
+                            "image": "assets/butterfly_pose.jpg",
+                            "hold": "2 minutes",
+                            "instructions": "Sit with the soles of your feet together and let your knees fall out to the sides. Hold your feet and slowly fold forward, letting your back round and your head drop. This is a deeply calming hip opener that signals to your body that it is time to rest."
+                        },
+                        {
+                            "name": "Savasana",
+                            "image": "assets/savasana.jpg",
+                            "hold": "5 minutes",
+                            "instructions": "Lie completely flat on your back, arms and legs slightly apart, eyes closed. Let go of any control over your breathing and allow your body to sink into the floor. Scan from your toes to the top of your head and consciously relax each part of your body."
+                        }
+                    ]
+                },
+                "desk": {
+                    "title": "💺 Quick Desk Stretches",
+                    "description": "Five minute stretches you can do right at your desk or between classes without a mat or any equipment. Your body will thank you after long study sessions.",
+                    "duration": "5 to 10 minutes",
+                    "poses": [
+                        {
+                            "name": "Neck Side Stretch",
+                            "image": "assets/neck_stretch.jpg",
+                            "hold": "30 seconds each side",
+                            "instructions": "Sit tall in your chair. Drop your right ear toward your right shoulder and hold. You can gently place your right hand on your head for a deeper stretch. Breathe slowly and switch sides. This releases tension from looking at screens."
+                        },
+                        {
+                            "name": "Shoulder Roll",
+                            "image": "assets/shoulder_roll.jpg",
+                            "hold": "30 seconds",
+                            "instructions": "Sit upright and slowly roll both shoulders backward in large circles five times, then forward five times. Follow with a shoulder squeeze, pulling them up toward your ears on an inhale and dropping them down on an exhale."
+                        },
+                        {
+                            "name": "Seated Cat Cow",
+                            "image": "assets/seated_cat_cow.jpg",
+                            "hold": "60 seconds",
+                            "instructions": "Sit at the edge of your chair with feet flat on the floor. Place hands on your knees. On an inhale, arch your back and lift your chest (cow). On an exhale, round your spine and drop your chin (cat). Flow with your breath for 5 to 8 rounds."
+                        },
+                        {
+                            "name": "Wrist Stretch",
+                            "image": "assets/wrist_stretch.jpg",
+                            "hold": "30 seconds each side",
+                            "instructions": "Extend your right arm forward with palm facing up. Use your left hand to gently pull the fingers down and back toward you. Hold and breathe, then switch. Essential for anyone who types for long periods."
+                        },
+                        {
+                            "name": "Seated Spinal Stretch",
+                            "image": "assets/seated_spinal_stretch.jpg",
+                            "hold": "30 seconds each side",
+                            "instructions": "Sit tall in your chair and cross your right leg over your left knee. Place your left hand on your right knee and your right hand on the back of the chair. Inhale to lengthen, exhale to gently twist to the right. Switch sides."
+                        }
+                    ]
+                }
+            }
+
+            flow = yoga_flows[st.session_state["yoga"]]
+
+            st.markdown(f"""
+            <div class="yoga-section">
+                <h3 style="color: #3b1f6b;">{flow["title"]}</h3>
+                <p>{flow["description"]}</p>
+                <p style="color: #666; font-size: 0.9em;">⏱️ Recommended duration: {flow["duration"]}</p>
+            </div>
+            """, unsafe_allow_html=True)
+
+            st.markdown("### Poses in this flow:")
+            st.markdown(" ")
+
+            for i, pose in enumerate(flow["poses"]):
+                col_img, col_info = st.columns([1, 2])
+                with col_img:
+                    try:
+                        st.image(pose["image"], width=200, caption=pose["name"])
+                    except:
+                        st.markdown(f"""
+                        <div style="background:#e8e8e8; border-radius:10px; height:180px;
+                        display:flex; align-items:center; justify-content:center; color:#888;">
+                            🧘 {pose["name"]}
+                        </div>
+                        """, unsafe_allow_html=True)
+                with col_info:
+                    st.markdown(f"#### {pose['name']}")
+                    st.markdown(f"**Hold:** {pose['hold']}")
+                    st.write(pose["instructions"])
+                    st.info(f"Hold {pose['name']} for {pose['hold']} — Focus on breathing deeply and relaxing into the stretch.")
+                st.markdown("---")
+
+    with tab2:
+        st.markdown(" ")
+        st.markdown("### 🌬️ Breathing Exercise")
+        st.markdown(" ")
+
+        st.markdown("""
+        <div class="yoga-section">
+            <h3 style="color: #1a6b5e;">Choose a breathing pattern</h3>
+        </div>
+        """, unsafe_allow_html=True)
+
+        breath_type = st.selectbox("Select a pattern:", [
+            "Box Breathing (4-4-4-4) — Great for stress and focus",
+            "4-7-8 Breathing — Great for falling asleep",
+            "Calm Breathing (4-6) — Great for general relaxation"
+        ])
+
+        if "Box" in breath_type:
+            phases = [("Breathe In", 4), ("Hold", 4), ("Breathe Out", 4), ("Hold", 4)]
+            description = "Box breathing is used by athletes and military personnel to stay calm under pressure. Each phase lasts 4 seconds."
+        elif "4-7-8" in breath_type:
+            phases = [("Breathe In", 4), ("Hold", 7), ("Breathe Out", 8)]
+            description = "The 4-7-8 pattern activates your parasympathetic nervous system and is one of the most effective tools for falling asleep quickly."
+        else:
+            phases = [("Breathe In", 4), ("Breathe Out", 6)]
+            description = "Simple and powerful. A longer exhale than inhale naturally slows your heart rate and calms your mind."
+
+        st.info(description)
+
+        rounds = st.slider("How many rounds would you like to complete?", 1, 10, 3)
+
+        if st.button("Start Breathing Exercise", use_container_width=True):
+            import time
+            total_rounds = rounds
+            total_seconds = total_rounds * sum(d for _, d in phases)
+            progress_bar = st.progress(0)
+            status_box = st.empty()
+            circle_box = st.empty()
+            elapsed = 0
+
+            for r in range(total_rounds):
+                for phase, duration in phases:
+                    for second in range(duration):
+                        elapsed += 1
+                        overall_progress = elapsed / total_seconds if total_seconds > 0 else 0
+                        progress_bar.progress(overall_progress)
+
+                        if phase == "Breathe In":
+                            size = 120 + int((second / duration) * 80)
+                            color = "linear-gradient(135deg, #89f7fe, #66a6ff)"
+                        elif phase == "Breathe Out":
+                            size = 200 - int((second / duration) * 80)
+                            color = "linear-gradient(135deg, #a18cd1, #fbc2eb)"
+                        else:
+                            size = 160
+                            color = "linear-gradient(135deg, #43cea2, #185a9d)"
+
+                        circle_box.markdown(f"""
+                        <div style="text-align:center; padding: 20px 0;">
+                            <div style="
+                                width: {size}px;
+                                height: {size}px;
+                                border-radius: 50%;
+                                background: {color};
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                                color: white;
+                                font-weight: 700;
+                                font-size: 1em;
+                                transition: all 1s ease;
+                                box-shadow: 0 0 30px rgba(102,166,255,0.4);
+                            ">
+                                {phase}<br>{duration - second}s
+                            </div>
+                            <p style="color: #888; margin-top: 16px;">Round {r + 1} of {total_rounds}</p>
+                        </div>
+                        """, unsafe_allow_html=True)
+                        time.sleep(1)
+
+            progress_bar.progress(1.0)
+            circle_box.empty()
+            status_box.success("Session complete! Take a moment to notice how you feel.")
+            st.balloons()
+
+        st.markdown("---")
+        st.markdown("### ⏱️ Meditation Timer")
+        st.markdown(" ")
+
+        col_left, col_right = st.columns(2)
+
+        with col_left:
+            med_minutes = st.slider("Session length in minutes:", 1, 30, 5)
+
+        with col_right:
+            sound_choice = st.selectbox("Ambient sound:", [
+                "No sound",
+                "Rain",
+                "Ocean Waves",
+                "Forest",
+                "White Noise"
+            ])
+
+        sound_urls = {
+            "Rain": "https://www.soundjay.com/misc/sounds/rain-01.mp3",
+            "Ocean Waves": "https://www.soundjay.com/misc/sounds/ocean-wave-1.mp3",
+            "Forest": "https://www.soundjay.com/misc/sounds/crickets-1.mp3",
+            "White Noise": "https://www.soundjay.com/misc/sounds/white-noise-1.mp3"
+        }
+
+        if sound_choice != "No sound" and sound_choice in sound_urls:
+            st.markdown(f"""
+            <audio autoplay loop>
+                <source src="{sound_urls[sound_choice]}" type="audio/mpeg">
+            </audio>
+            """, unsafe_allow_html=True)
+
+        if st.button("Start Meditation Session", use_container_width=True):
+            import time
+            total_seconds = med_minutes * 60
+            progress_bar = st.progress(0)
+            timer_display = st.empty()
+ 
+            for second in range(total_seconds):
+                remaining = total_seconds - second
+                mins = remaining // 60
+                secs = remaining % 60
+                progress_bar.progress((second + 1) / total_seconds)
+                timer_display.markdown(f"""
+                <div style="text-align:center; padding: 30px 0;">
+                    <div style="
+                        font-size: 3.5em;
+                        font-weight: 700;
+                        color: #3b1f6b;
+                        letter-spacing: 2px;
+                    ">{mins:02d}:{secs:02d}</div>
+                    <p style="color: #888; font-size: 1em; margin-top: 8px;">
+                        Breathe naturally. Let your thoughts pass like clouds.
+                    </p>
+                </div>
+                """, unsafe_allow_html=True)
+                time.sleep(1)
+
+            progress_bar.progress(1.0)
+            timer_display.empty()
+            st.success(f"Your {med_minutes} minute meditation is complete. Well done.")
+            st.balloons()
+
+    with tab3:
+        st.markdown(" ")
+        st.markdown("""
+        <div class="yoga-section">
+            <h3 style="color: #1a6b5e;">🌿 Daily Mindfulness Habits</h3>
+            <p>You do not need a full yoga session to be mindful. These small habits, practiced consistently,
+            make a real difference in how you handle stress and show up each day.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        mindfulness_tips = [
+            ("🌅", "Start your morning without your phone", "Give yourself the first 5 to 10 minutes of your day before checking notifications. Use that time to breathe, stretch, or just sit quietly. How you start your morning shapes how the rest of your day feels."),
+            ("🍽️", "Eat at least one meal without a screen", "Put your phone face down during one meal each day. Notice the taste of your food, slow down, and give your brain a genuine break from stimulation."),
+            ("🚶", "Take a mindful walk", "Once a day, walk somewhere on campus without headphones. Notice what is around you, how your feet feel on the ground, and what you can hear. Five minutes of this resets your nervous system."),
+            ("📓", "Write three things you are grateful for", "Before bed, write down three specific things that happened today that you are grateful for. They do not have to be big. This practice rewires your brain over time to notice the good more naturally."),
+            ("💬", "Check in with yourself at midday", "Around lunch, pause and ask yourself how you are actually feeling and whether your energy and focus are where you want them to be. Awareness is the first step to making any adjustment."),
+            ("📵", "Create a phone free wind down", "For the last 30 minutes before sleep, put your phone in another room or face down across the room. Read, stretch, or just breathe. Your sleep quality will improve noticeably within a few days."),
+            ("🌬️", "Use the 3 breath reset", "Any time you feel stressed or overwhelmed during the day, take three slow deliberate breaths before responding or reacting. Inhale for 4 counts, exhale for 6. This tiny habit builds enormous resilience over time."),
+            ("🎯", "Set one intention each morning", "Before starting your day, decide on one word or one priority that will guide you. It could be focus, patience, energy, or presence. Having a simple intention creates direction and keeps you grounded when things get hectic.")
+        ]
+
+        for icon, title, description in mindfulness_tips:
+            st.markdown(f"""
+            <div class="mindfulness-card">
+                <span class="mindfulness-icon">{icon}</span>
+                <div>
+                    <strong>{title}</strong><br>
+                    <span style="color: #555;">{description}</span>
+                </div>
+            </div>
+            """, unsafe_allow_html=True)
 
 elif page == "📚 Resource Hub":
     st.title("Resource Hub")
