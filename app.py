@@ -124,7 +124,6 @@ page = st.sidebar.radio(
         "⚡ Stressor Topics",
         "🧘 Yoga and Meditation",
         "📚 Resource Hub",
-        "📈 Progress Tracker"
     ]
 )
 
@@ -197,11 +196,10 @@ if page == "🏠 Home":
     st.markdown("""
     <div class="welcome-card">
         <p>
-        College can be exciting, overwhelming, and everything in between.
+        While college can be exciting and full of oppurtunities, it can also be overwhelming.
         This app was built specifically for <strong>BH students</strong> to help you manage stress,
-        build healthy habits, and find balance across all areas of your life.
-        Whether you are just starting out, navigating student organizations, or preparing for
-        internships — <strong>you have got support here.</strong>
+        build healthy habits, and find balance across all aspects of your life.
+        No matter who you are or what situation you are in, <strong>you have got support here.</strong>
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -221,6 +219,7 @@ if page == "🏠 Home":
         st.markdown(" ")
         if st.button("Go to Check-In", use_container_width=True):
             st.info("Select Daily Check-In from the sidebar!")
+
 
     with col2:
         st.markdown("""
@@ -339,7 +338,7 @@ elif page == "📋 Daily Check-In":
 
     <div class="checkin-hero">
         <h1>📋 Daily Check-In</h1>
-        <p>Take a moment to check in with yourself. You deserve it.</p>
+        <p>Take a moment to check in with yourself.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -353,9 +352,9 @@ elif page == "📋 Daily Check-In":
     mood = st.slider("Rate your mood from 1 (struggling) to 5 (great)", 1, 5, 3)
 
     mood_config = {
-        1: ("#fee2e2", "#991b1b", "😔  That sounds really tough. Let's find something to help you today."),
-        2: ("#fef3c7", "#92400e", "😟  Hang in there. Small steps make a big difference."),
-        3: ("#e0f2fe", "#0369a1", "😐  Not bad! Let's help you make today a little better."),
+        1: ("#fee2e2", "#991b1b", "😔  That sounds really tough. Let's get back on your feet."),
+        2: ("#fef3c7", "#92400e", "😟  Hang in there. Small steps can make a big difference."),
+        3: ("#e0f2fe", "#0369a1", "😐  Not bad! Let's help you make the most of your day."),
         4: ("#dcfce7", "#166534", "😊  Doing well! Keep that momentum going."),
         5: ("#f0fdf4", "#14532d", "🌟  Amazing! Let's keep that energy up today.")
     }
@@ -389,8 +388,8 @@ elif page == "📋 Daily Check-In":
     st.markdown(" ")
     st.markdown("""
     <div class="checkin-card">
-        <h3>✏️ Set one small goal for today</h3>
-        <p style="color: #666; margin: 0;">Keep it simple and achievable — one meaningful step is enough.</p>
+        <h3>✏️ Set a goal for today</h3>
+        <p style="color: #666; margin: 0;">Keep it simple and achievable. Moving forward a little is better than doing nothing.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -583,28 +582,28 @@ elif page == "🌱 8 Wellness Pillars":
 
         <div class="section-card">
             <h3 style="color: #185a9d;">Why it matters</h3>
-            <p>Regular physical activity reduces stress hormones like cortisol, improves sleep quality,
-            boosts energy, and sharpens focus. Even small amounts of movement make a measurable
+            <p>Regular physical activity reduces stress hormones like cortisol, which improves sleep quality,
+            boosts energy, and sharpens focus. Even small amounts of daily movement make a measurable
             difference in how you feel day to day.</p>
         </div>
 
         <div class="section-card">
             <h3 style="color: #185a9d;">Tips for BH Students</h3>
             <div class="tip-grid">
-                <div class="tip-item"><span class="tip-icon">🚶</span><span>Aim for 30 minutes of movement per day — a walk between classes counts.</span></div>
-                <div class="tip-item"><span class="tip-icon">🏋️</span><span>Use the campus rec center during off-peak hours to avoid crowds.</span></div>
-                <div class="tip-item"><span class="tip-icon">😴</span><span>Sleep 7 to 9 hours per night. Poor sleep makes every stressor worse.</span></div>
-                <div class="tip-item"><span class="tip-icon">💧</span><span>Stay hydrated — keep a water bottle with you during class.</span></div>
-                <div class="tip-item"><span class="tip-icon">🥗</span><span>Eat at least one balanced meal per day even on your busiest days.</span></div>
-                <div class="tip-item"><span class="tip-icon">🧘</span><span>Stretch for 5 to 10 minutes before bed to release tension.</span></div>
-                <div class="tip-item"><span class="tip-icon">🚪</span><span>Take stairs and walk to class instead of driving when possible.</span></div>
-                <div class="tip-item"><span class="tip-icon">📵</span><span>Set a no-phone rule 30 minutes before bed to improve sleep quality.</span></div>
+                <div class="tip-item"><span class="tip-icon">🚶</span><span>Aim for 30 minutes of movement per day. A walk between classes is an easy way to do this.</span></div>
+                <div class="tip-item"><span class="tip-icon">🏋️</span><span>Use the campus rec center during slow hours to avoid crowds.</span></div>
+                <div class="tip-item"><span class="tip-icon">😴</span><span>Sleep 7 to 9 hours per night. All-nighters before a test are not a good idea.</span></div>
+                <div class="tip-item"><span class="tip-icon">💧</span><span>Stay hydrated by keeping a water bottle with you during class.</span></div>
+                <div class="tip-item"><span class="tip-icon">🥗</span><span>Eat at least one "healthy" meal per day even on your busiest days. Nutrients are important!</span></div>
+                <div class="tip-item"><span class="tip-icon">🧘</span><span>Stretch for 5 to 10 minutes before bed to release muscle tension.</span></div>
+                <div class="tip-item"><span class="tip-icon">🚪</span><span>Take the stairs and walk to class instead of driving whenever possible.</span></div>
+                <div class="tip-item"><span class="tip-icon">📵</span><span>Don't use your phone 30 minutes before bed to improve sleep quality.</span></div>
             </div>
         </div>
 
         <div class="quick-win" style="background: linear-gradient(135deg, #f6d365, #fda085); color: #4a1a00;">
-            <h3 style="color: #4a1a00;">⚡ Quick Win You Can Do Right Now</h3>
-            <p>Take a 10 minute walk outside. Get off your phone, notice your surroundings, and breathe deeply. That is it — you just did something great for your body.</p>
+            <h3 style="color: #4a1a00;">⚡ An Easy Way To Get A Win Right Now</h3>
+            <p>Take a 10 minute walk outside. Get off your phone, focus on the environment, and breathe deeply. That's all you need to do something great for your body.</p>
         </div>
 
         <div class="section-card">
@@ -628,27 +627,26 @@ elif page == "🌱 8 Wellness Pillars":
         <div class="section-card">
             <h3 style="color: #f5576c;">Why it matters</h3>
             <p>Students who develop emotional awareness are better equipped to handle academic pressure,
-            relationship conflicts, and major life transitions. Ignoring your emotional health leads to
-            burnout, isolation, and long-term mental health struggles.</p>
+            relationship conflicts, and major life transitions. Ignoring your emotional health spills over into other areas of your life.</p>
         </div>
 
         <div class="section-card">
             <h3 style="color: #f5576c;">Tips for BH Students</h3>
             <div class="tip-grid">
-                <div class="tip-item"><span class="tip-icon">🗣️</span><span>Name your emotions instead of suppressing them — awareness is the first step.</span></div>
-                <div class="tip-item"><span class="tip-icon">📓</span><span>Journal for 5 minutes each day — just write what is on your mind.</span></div>
+                <div class="tip-item"><span class="tip-icon">🗣️</span><span>Name your emotions instead of suppressing them. Awareness is the first step to managing your emotions.</span></div>
+                <div class="tip-item"><span class="tip-icon">📓</span><span>Journal for 5 minutes each day. Writing down your thoughts can help you process them.</span></div>
                 <div class="tip-item"><span class="tip-icon">👥</span><span>Talk to someone you trust when something is bothering you.</span></div>
                 <div class="tip-item"><span class="tip-icon">🚧</span><span>Set boundaries with people and commitments that drain your energy.</span></div>
-                <div class="tip-item"><span class="tip-icon">💬</span><span>Practice self-compassion — talk to yourself like you would a close friend.</span></div>
-                <div class="tip-item"><span class="tip-icon">🛑</span><span>Recognize when you are overwhelmed and give yourself permission to pause.</span></div>
-                <div class="tip-item"><span class="tip-icon">📵</span><span>Limit social media if it makes you feel worse about yourself.</span></div>
-                <div class="tip-item"><span class="tip-icon">🎨</span><span>Express yourself creatively — art, music, and writing all support emotional health.</span></div>
+                <div class="tip-item"><span class="tip-icon">💬</span><span>Talk to yourself like you would a close friend. Putting yourself down doesn't help anybody.</span></div>
+                <div class="tip-item"><span class="tip-icon">🛑</span><span>Recognize when you are overwhelmed and give yourself time to destress.</span></div>
+                <div class="tip-item"><span class="tip-icon">📵</span><span>Gauge how social media makes you feel about yourself. Don't give time to things that make you upset.</span></div>
+                <div class="tip-item"><span class="tip-icon">🎨</span><span>Express yourself creatively through art, music, or writing.</span></div>
             </div>
         </div>
 
         <div class="quick-win" style="background: linear-gradient(135deg, #fbc2eb, #a18cd1); color: #2d004f;">
-            <h3 style="color: #2d004f;">⚡ Quick Win You Can Do Right Now</h3>
-            <p>Write down three things you are feeling right now without judging them. Then write one thing you are grateful for. This takes less than two minutes and shifts your mindset.</p>
+            <h3 style="color: #2d004f;">⚡ An Easy Way To Get A Win Right Now</h3>
+            <p>Write down three things you are feeling right now without thinking about them. Then write one thing you are grateful for. This takes less than two minutes and can shift your mindset.</p>
         </div>
 
         <div class="section-card">
@@ -679,20 +677,20 @@ elif page == "🌱 8 Wellness Pillars":
         <div class="section-card">
             <h3 style="color: #0077cc;">Tips for BH Students</h3>
             <div class="tip-grid">
-                <div class="tip-item"><span class="tip-icon">👋</span><span>Introduce yourself to at least one new person per week — a classmate or club member.</span></div>
+                <div class="tip-item"><span class="tip-icon">👋</span><span>Introduce yourself to at least one new person per week. A classmate or club member is an easy way to start.</span></div>
                 <div class="tip-item"><span class="tip-icon">🎯</span><span>Join one student organization that genuinely interests you.</span></div>
-                <div class="tip-item"><span class="tip-icon">📅</span><span>Be consistent — show up to events even when you do not feel like it.</span></div>
+                <div class="tip-item"><span class="tip-icon">📅</span><span>Show up to events even when you don't feel like it. Consistency is key.</span></div>
                 <div class="tip-item"><span class="tip-icon">📱</span><span>Put your phone down during meals and social situations.</span></div>
-                <div class="tip-item"><span class="tip-icon">💌</span><span>Reach out to old friends and family regularly — do not let those bonds fade.</span></div>
+                <div class="tip-item"><span class="tip-icon">💌</span><span>Reach out to old friends and family. Relationships take effort.</span></div>
                 <div class="tip-item"><span class="tip-icon">🤲</span><span>Learn to resolve conflict directly and calmly rather than avoiding it.</span></div>
                 <div class="tip-item"><span class="tip-icon">🧠</span><span>Do not compare your social life to what you see on social media.</span></div>
-                <div class="tip-item"><span class="tip-icon">☕</span><span>Invite a classmate to study or grab coffee — small efforts build big friendships.</span></div>
+                <div class="tip-item"><span class="tip-icon">☕</span><span>Ask a classmate to study or grab coffee. Small efforts can build lasting friendships.</span></div>
             </div>
         </div>
 
         <div class="quick-win" style="background: linear-gradient(135deg, #4facfe, #00f2fe); color: #003366;">
-            <h3 style="color: #003366;">⚡ Quick Win You Can Do Right Now</h3>
-            <p>Text or call one friend or family member you have not talked to in a while. It takes two minutes and means more than you know.</p>
+            <h3 style="color: #003366;">⚡ An Easy Way To Get A Win Right Now</h3>
+            <p>Text or call a friend or family member you haven't talked to in a while. It takes two minutes and might make their day.</p>
         </div>
 
         <div class="section-card">
@@ -715,28 +713,28 @@ elif page == "🌱 8 Wellness Pillars":
 
         <div class="section-card">
             <h3 style="color: #6a0dad;">Why it matters</h3>
-            <p>Students who pursue intellectual engagement outside of required coursework are more
-            motivated, more creative, and better at problem solving. Intellectual wellness prevents
-            academic burnout by making learning feel meaningful again.</p>
+            <p>Students who pursue intellectual stimulation outside of required coursework are more
+            motivated, more creative, and better at problem solving. Intellectual wellness stops
+            academic burnout by making learning feel enjoyable again. An active thirst for knowledge keeps the brain healthy and the mind occupied.</p>
         </div>
 
         <div class="section-card">
             <h3 style="color: #6a0dad;">Tips for BH Students</h3>
             <div class="tip-grid">
-                <div class="tip-item"><span class="tip-icon">📚</span><span>Read something for fun every week — even 10 pages of a book you enjoy.</span></div>
-                <div class="tip-item"><span class="tip-icon">🎙️</span><span>Listen to podcasts on topics completely outside your major.</span></div>
-                <div class="tip-item"><span class="tip-icon">🎤</span><span>Attend a campus lecture or panel event at least once a month.</span></div>
-                <div class="tip-item"><span class="tip-icon">🧠</span><span>Challenge yourself to form your own opinions rather than accepting what you are told.</span></div>
+                <div class="tip-item"><span class="tip-icon">📚</span><span>Read 10 pages of a book you enjoy every night before going to bed.</span></div>
+                <div class="tip-item"><span class="tip-icon">🎙️</span><span>Listen to podcasts on topics that interest you, even outside your major.</span></div>
+                <div class="tip-item"><span class="tip-icon">🎤</span><span>Audit a different class or panel event at least once a semester.</span></div>
+                <div class="tip-item"><span class="tip-icon">🧠</span><span>Challenge yourself to form your own opinions on politics using unbiased sources.</span></div>
                 <div class="tip-item"><span class="tip-icon">🛠️</span><span>Learn one new skill per semester unrelated to your coursework.</span></div>
-                <div class="tip-item"><span class="tip-icon">✏️</span><span>Write, draw, or create something regularly — creativity is intellectual exercise.</span></div>
+                <div class="tip-item"><span class="tip-icon">✏️</span><span>Creativity is also intellectual exercise. Create art, write stories, or try out some brain teasers.</span></div>
                 <div class="tip-item"><span class="tip-icon">💬</span><span>Debate ideas with friends in a respectful and open-minded way.</span></div>
-                <div class="tip-item"><span class="tip-icon">🌍</span><span>Explore topics from other cultures and perspectives intentionally.</span></div>
+                <div class="tip-item"><span class="tip-icon">🌍</span><span>Explore topics from other cultures and perspectives with intention.</span></div>
             </div>
         </div>
 
         <div class="quick-win" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb); color: #2d004f;">
-            <h3 style="color: #2d004f;">⚡ Quick Win You Can Do Right Now</h3>
-            <p>Watch one TED Talk on a topic you know nothing about. Spend 5 minutes afterward writing down what surprised you most.</p>
+            <h3 style="color: #2d004f;">⚡ An Easy Way To Get A Win Right Now</h3>
+            <p>Watch one TED Talk on a topic you know nothing about. Spend 5 minutes afterward thinking about what surprised you or interested you about the topic.</p>
         </div>
 
         <div class="section-card">
@@ -759,28 +757,27 @@ elif page == "🌱 8 Wellness Pillars":
 
         <div class="section-card">
             <h3 style="color: #b35a00;">Why it matters</h3>
-            <p>Students who develop occupational wellness early are more confident in interviews,
-            more intentional about their choices, and less likely to experience post-graduation panic.
-            Your time in college is your biggest opportunity to explore and build.</p>
+            <p>Your time in college is your biggest opportunity to explore and build your occupational wellness.
+            Learning how to navigate your career path early can set you up for long-term success. Students with good occupational wellness feel safer about uncertainty and more assured in their career decisions.</p>
         </div>
 
         <div class="section-card">
             <h3 style="color: #b35a00;">Tips for BH Students</h3>
             <div class="tip-grid">
-                <div class="tip-item"><span class="tip-icon">🏢</span><span>Visit your campus career center at least once per semester.</span></div>
-                <div class="tip-item"><span class="tip-icon">📄</span><span>Update your resume and LinkedIn every time you gain a new experience.</span></div>
-                <div class="tip-item"><span class="tip-icon">📬</span><span>Apply for internships early — many deadlines are in the fall for next summer.</span></div>
-                <div class="tip-item"><span class="tip-icon">🤝</span><span>Say yes to informational interviews — they cost nothing and teach you everything.</span></div>
-                <div class="tip-item"><span class="tip-icon">🧭</span><span>Find a mentor — a professor, advisor, or professional in your field.</span></div>
+                <div class="tip-item"><span class="tip-icon">🏢</span><span>Visit the A&M Career Center at least once per semester.</span></div>
+                <div class="tip-item"><span class="tip-icon">📄</span><span>Update your resume and LinkedIn every time you gain a new professionalexperience.</span></div>
+                <div class="tip-item"><span class="tip-icon">📬</span><span>Apply for internships early. Many deadlines for applications are in the fall to work the following summer.</span></div>
+                <div class="tip-item"><span class="tip-icon">🤝</span><span>Say yes to optional interviews. It seems like a pain but practice is so important.</span></div>
+                <div class="tip-item"><span class="tip-icon">🧭</span><span>Look for a mentor. A professor, advisor, or professional in your field are all great choices.</span></div>
                 <div class="tip-item"><span class="tip-icon">🔍</span><span>Explore multiple career paths rather than locking in too early.</span></div>
-                <div class="tip-item"><span class="tip-icon">📧</span><span>Learn professional skills like email etiquette and public speaking now.</span></div>
-                <div class="tip-item"><span class="tip-icon">🌐</span><span>Build an online presence that reflects your professional goals.</span></div>
+                <div class="tip-item"><span class="tip-icon">📧</span><span>Learn professional skills like email etiquette and public speaking through your classes.</span></div>
+                <div class="tip-item"><span class="tip-icon">🌐</span><span>Build an online presence that reflects your professional goals. Try Googling your name.</span></div>
             </div>
         </div>
 
         <div class="quick-win" style="background: linear-gradient(135deg, #f7971e, #ffd200); color: #3d1f00;">
-            <h3 style="color: #3d1f00;">⚡ Quick Win You Can Do Right Now</h3>
-            <p>Update your LinkedIn profile with your current school, major, and one extracurricular activity. Add a professional photo. It takes 10 minutes and opens real doors.</p>
+            <h3 style="color: #3d1f00;">⚡ An Easy Way To Get A Win Right Now</h3>
+            <p>Update your LinkedIn profile with your current school, major, and  extracurricular activities. Add a professional headshot. It takes 10 minutes and will help potential employers stay updated.</p>
         </div>
 
         <div class="section-card">
@@ -803,19 +800,18 @@ elif page == "🌱 8 Wellness Pillars":
 
         <div class="section-card">
             <h3 style="color: #0047ab;">Why it matters</h3>
-            <p>Students with a strong sense of purpose are more resilient in the face of difficulty,
-            more motivated in their studies, and more grounded during times of uncertainty.
+            <p>Students with a strong sense of purpose are able to utilze their beliefs to make differences in their lives and the lives of others.
             Spiritual wellness gives you an anchor when everything else feels chaotic.</p>
         </div>
 
         <div class="section-card">
             <h3 style="color: #0047ab;">Tips for BH Students</h3>
             <div class="tip-grid">
-                <div class="tip-item"><span class="tip-icon">🧭</span><span>Spend time identifying your core values — what matters most to you in life.</span></div>
-                <div class="tip-item"><span class="tip-icon">🤲</span><span>Volunteer or give back in a way that feels meaningful to you.</span></div>
-                <div class="tip-item"><span class="tip-icon">🧘</span><span>Practice mindfulness or meditation even for just 5 minutes a day.</span></div>
-                <div class="tip-item"><span class="tip-icon">📖</span><span>Explore different philosophies and worldviews with an open mind.</span></div>
-                <div class="tip-item"><span class="tip-icon">🌿</span><span>Spend time in nature — it naturally grounds your sense of perspective.</span></div>
+                <div class="tip-item"><span class="tip-icon">🧭</span><span>Spend time identifying your core values and think about what that looks like in practice.</span></div>
+                <div class="tip-item"><span class="tip-icon">🤲</span><span>Volunteer or give back in a way to a cause that is important to you.</span></div>
+                <div class="tip-item"><span class="tip-icon">🧘</span><span>Practice mindfulness or meditation even for just 10 minutes a day.</span></div>
+                <div class="tip-item"><span class="tip-icon">📖</span><span>Research different philosophies and worldviews with an open mind.</span></div>
+                <div class="tip-item"><span class="tip-icon">🌿</span><span>Spend time outdoors. Nature can ground your sense of perspective.</span></div>
                 <div class="tip-item"><span class="tip-icon">🔄</span><span>Reflect on whether your daily actions align with your values and goals.</span></div>
                 <div class="tip-item"><span class="tip-icon">✨</span><span>Surround yourself with people who inspire and challenge you to grow.</span></div>
                 <div class="tip-item"><span class="tip-icon">🙏</span><span>Create a morning or evening ritual that helps you feel centered and grounded.</span></div>
@@ -823,8 +819,8 @@ elif page == "🌱 8 Wellness Pillars":
         </div>
 
         <div class="quick-win" style="background: linear-gradient(135deg, #89f7fe, #66a6ff); color: #002366;">
-            <h3 style="color: #002366;">⚡ Quick Win You Can Do Right Now</h3>
-            <p>Write down your top five personal values. Then ask yourself honestly — did my actions today reflect those values? No judgment, just awareness.</p>
+            <h3 style="color: #002366;">⚡ An Easy Way To Get A Win Right Now</h3>
+            <p>Write down your top five personal values. Then ask yourself honestly if your actions today reflected those values? Don't be harsh on yourself if the answer is no, just be aware going forward.</p>
         </div>
 
         <div class="section-card">
@@ -848,27 +844,26 @@ elif page == "🌱 8 Wellness Pillars":
         <div class="section-card">
             <h3 style="color: #2d6a00;">Why it matters</h3>
             <p>Cluttered, noisy, or unhealthy environments increase stress and reduce your ability to
-            focus. Students who take ownership of their physical spaces feel more in control,
-            more productive, and more at peace day to day.</p>
+            focus. Students who take ownership of their physical spaces feel more in control and at peace in their day to day lives.</p>
         </div>
 
         <div class="section-card">
             <h3 style="color: #2d6a00;">Tips for BH Students</h3>
             <div class="tip-grid">
-                <div class="tip-item"><span class="tip-icon">🧹</span><span>Keep your living space clean — even a quick tidy-up each morning sets a positive tone.</span></div>
+                <div class="tip-item"><span class="tip-icon">🧹</span><span>Keep your room clean. Making your bed every morning sets a positive tone.</span></div>
                 <div class="tip-item"><span class="tip-icon">🪴</span><span>Personalize your space with things that make you feel calm and inspired.</span></div>
                 <div class="tip-item"><span class="tip-icon">📚</span><span>Find your best study environment and use it consistently.</span></div>
                 <div class="tip-item"><span class="tip-icon">☀️</span><span>Spend at least 15 minutes outside each day — sunlight improves your mood.</span></div>
-                <div class="tip-item"><span class="tip-icon">🗑️</span><span>Reduce clutter — physical clutter creates mental clutter.</span></div>
-                <div class="tip-item"><span class="tip-icon">♻️</span><span>Be mindful of your environmental impact — recycle and reduce waste.</span></div>
-                <div class="tip-item"><span class="tip-icon">🔊</span><span>Use noise-canceling headphones or white noise if your dorm is loud.</span></div>
-                <div class="tip-item"><span class="tip-icon">💡</span><span>Use warm lighting in the evening to help your body wind down naturally.</span></div>
+                <div class="tip-item"><span class="tip-icon">🗑️</span><span>Reduce unnessecary items around you. Physical clutter fosters mental clutter.</span></div>
+                <div class="tip-item"><span class="tip-icon">♻️</span><span>Adopt some environmentally friendly habits. Recylcing and and walking to class are easy starts</span></div>
+                <div class="tip-item"><span class="tip-icon">🔊</span><span>Don't doom scroll in the same place you study or sleep.</span></div>
+                <div class="tip-item"><span class="tip-icon">💡</span><span>Avoid harsh lighting in the evening to help your body wind down naturally.</span></div>
             </div>
         </div>
 
         <div class="quick-win" style="background: linear-gradient(135deg, #56ab2f, #a8e063); color: #0f2d00;">
-            <h3 style="color: #0f2d00;">⚡ Quick Win You Can Do Right Now</h3>
-            <p>Spend 10 minutes cleaning and organizing your desk or study space right now. Notice how your mind feels afterward — clearer space creates a clearer mind.</p>
+            <h3 style="color: #0f2d00;">⚡ An Easy Way To Get A Win Right Now</h3>
+            <p>Spend 10 minutes cleaning and organizing your desk or study space right now. Note how your mind feels afterward: it should feel less distracted and cluttered.</p>
         </div>
 
         <div class="section-card">
@@ -899,19 +894,19 @@ elif page == "🌱 8 Wellness Pillars":
         <div class="section-card">
             <h3 style="color: #0a5c52;">Tips for BH Students</h3>
             <div class="tip-grid">
-                <div class="tip-item"><span class="tip-icon">📊</span><span>Build a monthly budget using the 50/30/20 rule — needs, wants, savings.</span></div>
-                <div class="tip-item"><span class="tip-icon">🧾</span><span>Track every purchase for one week — most people are shocked by what they find.</span></div>
-                <div class="tip-item"><span class="tip-icon">🎓</span><span>Apply for every scholarship you are eligible for — thousands go unclaimed yearly.</span></div>
-                <div class="tip-item"><span class="tip-icon">💳</span><span>Avoid credit card debt — if you use one, pay it off in full every month.</span></div>
-                <div class="tip-item"><span class="tip-icon">🍳</span><span>Cook your own meals when possible — eating out drains a college budget fast.</span></div>
-                <div class="tip-item"><span class="tip-icon">🏦</span><span>Build an emergency fund — even 500 dollars saved is a meaningful cushion.</span></div>
-                <div class="tip-item"><span class="tip-icon">🏫</span><span>Talk to your financial aid office if you are struggling — they have options most students never ask about.</span></div>
+                <div class="tip-item"><span class="tip-icon">📊</span><span>Build a monthly budget using the 50/30/20 rule to divide your money among needs, wants, and savings(respectively).</span></div>
+                <div class="tip-item"><span class="tip-icon">🧾</span><span>Share accounts with your roommate or family members to split expenses on shared resources.</span></div>
+                <div class="tip-item"><span class="tip-icon">🎓</span><span>Apply for every scholarship and grant you are eligible for. A surprising amount of money is unclaimed each year.</span></div>
+                <div class="tip-item"><span class="tip-icon">💳</span><span>Avoid long-term credit card debt, if you use one, pay it off in full every month.</span></div>
+                <div class="tip-item"><span class="tip-icon">🍳</span><span>Cook your own meals whenever possible. Eating out drains a college budget fast.</span></div>
+                <div class="tip-item"><span class="tip-icon">🏦</span><span>Contribute money to an emergency fund, even if it's just a small amount each month.</span></div>
+                <div class="tip-item"><span class="tip-icon">🏫</span><span>Learn the basics of investing and open a ROTH IRA.</span></div>
                 <div class="tip-item"><span class="tip-icon">📈</span><span>Open a savings account now and set up automatic transfers even if it is just 10 dollars a month.</span></div>
             </div>
         </div>
 
         <div class="quick-win" style="background: linear-gradient(135deg, #11998e, #38ef7d); color: #002d27;">
-            <h3 style="color: #002d27;">⚡ Quick Win You Can Do Right Now</h3>
+            <h3 style="color: #002d27;">⚡ An Easy Way To Get A Win Right Now</h3>
             <p>Download a free budgeting app and enter your income and three biggest monthly expenses. Just seeing the numbers clearly is the first and most important step.</p>
         </div>
 
@@ -1660,19 +1655,17 @@ elif page == "🧘 Yoga and Meditation":
                 "White Noise"
             ])
 
-        sound_urls = {
-            "Rain": "https://www.soundjay.com/misc/sounds/rain-01.mp3",
-            "Ocean Waves": "https://www.soundjay.com/misc/sounds/ocean-wave-1.mp3",
-            "Forest": "https://www.soundjay.com/misc/sounds/crickets-1.mp3",
-            "White Noise": "https://www.soundjay.com/misc/sounds/white-noise-1.mp3"
-        }
+        sound_files = {
+            "Rain": "assets/rain.mp3",
+            "Ocean Waves": "assets/ocean.mp3",
+            "Forest": "assets/forest.mp3",
+            "White Noise": "assets/whitenoise.mp3"
+}
 
-        if sound_choice != "No sound" and sound_choice in sound_urls:
-            st.markdown(f"""
-            <audio autoplay loop>
-                <source src="{sound_urls[sound_choice]}" type="audio/mpeg">
-            </audio>
-            """, unsafe_allow_html=True)
+        if sound_choice != "No sound" and sound_choice in sound_files:
+            audio_file = open(sound_files[sound_choice], "rb")
+            audio_bytes = audio_file.read()
+            st.audio(audio_bytes, format="audio/mp3", loop=True)
 
         if st.button("Start Meditation Session", use_container_width=True):
             import time
@@ -1738,9 +1731,516 @@ elif page == "🧘 Yoga and Meditation":
             """, unsafe_allow_html=True)
 
 elif page == "📚 Resource Hub":
-    st.title("Resource Hub")
-    st.info("This page is coming soon!")
 
-elif page == "📈 Progress Tracker":
-    st.title("Progress Tracker")
-    st.info("This page is coming soon!")
+    st.markdown("""
+    <style>
+    .resource-hero {
+        background: linear-gradient(135deg, #1a1a2e, #2d6a4f);
+        border-radius: 20px;
+        padding: 36px 40px;
+        margin-bottom: 28px;
+        text-align: center;
+    }
+    .resource-hero h1 { color: white; font-size: 2.2em; margin: 0 0 8px 0; }
+    .resource-hero p { color: rgba(255,255,255,0.85); font-size: 1.1em; margin: 0; }
+    .resource-section {
+        background: #f8fafc;
+        border-radius: 16px;
+        padding: 24px 28px;
+        margin-bottom: 20px;
+        border: 1px solid #e2e8f0;
+    }
+    .resource-section h3 { margin-top: 0; }
+    .resource-card-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+        margin-top: 14px;
+    }
+    .resource-item {
+        background: white;
+        border-radius: 12px;
+        padding: 18px 20px;
+        border: 1px solid #e2e8f0;
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+    }
+    .resource-item-icon {
+        font-size: 1.8em;
+        flex-shrink: 0;
+    }
+    .resource-item-content h4 {
+        margin: 0 0 4px 0;
+        font-size: 1em;
+        color: #1a1a2e;
+    }
+    .resource-item-content p {
+        margin: 0 0 8px 0;
+        color: #666;
+        font-size: 0.88em;
+        line-height: 1.5;
+    }
+    .resource-item-content a {
+        font-size: 0.88em;
+        font-weight: 600;
+        color: #2d6a4f;
+        text-decoration: none;
+    }
+    .emergency-card {
+        background: linear-gradient(135deg, #ff6b6b, #c0392b);
+        border-radius: 14px;
+        padding: 24px 28px;
+        margin-bottom: 20px;
+        color: white;
+    }
+    .emergency-card h3 { color: white; margin-top: 0; }
+    .emergency-item {
+        background: rgba(255,255,255,0.15);
+        border-radius: 10px;
+        padding: 14px 18px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+    .emergency-item-icon { font-size: 1.5em; flex-shrink: 0; }
+    .emergency-item h4 { margin: 0 0 2px 0; color: white; font-size: 0.95em; }
+    .emergency-item p { margin: 0; color: rgba(255,255,255,0.85); font-size: 0.88em; }
+    .tip-banner {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 14px;
+        padding: 22px 28px;
+        color: white;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .tip-banner p { color: rgba(255,255,255,0.92); margin: 0; font-size: 1.0em; line-height: 1.7; }
+    </style>
+
+    <div class="resource-hero">
+        <h1>📚 Resource Hub</h1>
+        <p>Everything you need in one place — campus resources, mental health support, academic help, and more.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    tab1, tab2, tab3, tab4 = st.tabs([
+        "🏫 Campus Resources",
+        "🧠 Mental Health",
+        "📖 Academic Support",
+        "💼 Career Resources"
+    ])
+
+    with tab1:
+        st.markdown(" ")
+
+        st.markdown("""
+        <div class="emergency-card">
+            <h3>🚨 Emergency Contacts</h3>
+            <div class="emergency-item">
+                <span class="emergency-item-icon">🚔</span>
+                <div>
+                    <h4>Texas A&M University Police</h4>
+                    <p>Emergency: 911 | Non-emergency: (979) 845-2345</p>
+                </div>
+            </div>
+            <div class="emergency-item">
+                <span class="emergency-item-icon">🏥</span>
+                <div>
+                    <h4>Student Health Services</h4>
+                    <p>(979) 458-4584 | Beutel Health Center on campus</p>
+                </div>
+            </div>
+            <div class="emergency-item">
+                <span class="emergency-item-icon">🧠</span>
+                <div>
+                    <h4>Student Counseling Service — Crisis Line</h4>
+                    <p>(866) 743-7732 | Available 24 hours a day, 7 days a week</p>
+                </div>
+            </div>
+            <div class="emergency-item">
+                <span class="emergency-item-icon">📞</span>
+                <div>
+                    <h4>988 Suicide and Crisis Lifeline</h4>
+                    <p>Call or text 988 — free, confidential, available anytime</p>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown("""
+        <div class="resource-section">
+            <h3 style="color: #2d6a4f;">🏢 Business Honors and Wehner Building</h3>
+            <div class="resource-card-grid">
+                <div class="resource-item">
+                    <span class="resource-item-icon">🎓</span>
+                    <div class="resource-item-content">
+                        <h4>Business Honors Office</h4>
+                        <p>Your first stop for advising, program questions, and career guidance specific to BH students.</p>
+                        <a href="https://mays.tamu.edu/business-honors/" target="_blank">Visit the BH Program Page</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🧑‍🏫</span>
+                    <div class="resource-item-content">
+                        <h4>Professor Office Hours</h4>
+                        <p>Office hours are held in Wehner and are one of the most underused resources in college. Go early and go often.</p>
+                        <a href="https://mays.tamu.edu" target="_blank">Visit Mays Business School</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">📖</span>
+                    <div class="resource-item-content">
+                        <h4>Course Help Desks</h4>
+                        <p>Peer staffed help desks for many business courses are located inside Wehner. Use them before exams and throughout the semester.</p>
+                        <a href="https://mays.tamu.edu" target="_blank">Mays Academic Resources</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">📅</span>
+                    <div class="resource-item-content">
+                        <h4>BH Specialized Advisors</h4>
+                        <p>Your BH advisor helps with course selection, degree planning, and navigating the program. Schedule regular meetings.</p>
+                        <a href="https://mays.tamu.edu/directory/?department=0&office=0&center=0&fullname=business+honors" target="_blank">Contact Your Advisor</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown("""
+        <div class="resource-section">
+            <h3 style="color: #2d6a4f;">🐾 General Texas A&M Resources</h3>
+            <div class="resource-card-grid">
+                <div class="resource-item">
+                    <span class="resource-item-icon">🏛️</span>
+                    <div class="resource-item-content">
+                        <h4>Texas A&M Student Affairs</h4>
+                        <p>Central hub for student services, involvement opportunities, and campus life resources.</p>
+                        <a href="https://studentaffairs.tamu.edu" target="_blank">studentaffairs.tamu.edu</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">📚</span>
+                    <div class="resource-item-content">
+                        <h4>Evans Library</h4>
+                        <p>Study rooms, research databases, printing, and academic support. Available to all students.</p>
+                        <a href="https://library.tamu.edu" target="_blank">library.tamu.edu</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🍽️</span>
+                    <div class="resource-item-content">
+                        <h4>Dining Services</h4>
+                        <p>Campus dining locations, hours, menus, and meal plan information.</p>
+                        <a href="https://dining.tamu.edu" target="_blank">dining.tamu.edu</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🏋️</span>
+                    <div class="resource-item-content">
+                        <h4>Campus Recreation Center</h4>
+                        <p>Gym facilities, fitness classes, intramural sports, and wellness programs for all students.</p>
+                        <a href="https://recsports.tamu.edu" target="_blank">recsports.tamu.edu</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🚌</span>
+                    <div class="resource-item-content">
+                        <h4>Aggie Bus System</h4>
+                        <p>Free on campus bus system routes, schedules, and real time tracking for getting around campus.</p>
+                        <a href="https://transport.tamu.edu" target="_blank">transport.tamu.edu</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">💻</span>
+                    <div class="resource-item-content">
+                        <h4>IT Help Desk</h4>
+                        <p>Tech support for laptops, university software, wifi, and student accounts.</p>
+                        <a href="https://it.tamu.edu" target="_blank">it.tamu.edu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with tab2:
+        st.markdown(" ")
+
+        st.markdown("""
+        <div class="tip-banner">
+            <p>Asking for help is one of the strongest things you can do. Every resource on this page
+            exists because someone recognized that college is hard and that students deserve support.
+            You do not have to be in crisis to use them.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown("""
+        <div class="resource-section">
+            <h3 style="color: #2d6a4f;">🏫 On Campus Mental Health</h3>
+            <div class="resource-card-grid">
+                <div class="resource-item">
+                    <span class="resource-item-icon">🧠</span>
+                    <div class="resource-item-content">
+                        <h4>Student Counseling Service</h4>
+                        <p>Free and confidential counseling for all Texas A&M students. Individual therapy, group sessions, and crisis support.</p>
+                        <a href="https://scs.tamu.edu" target="_blank">scs.tamu.edu</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🏥</span>
+                    <div class="resource-item-content">
+                        <h4>Student Health Services</h4>
+                        <p>Medical and mental health care on campus at Beutel Health Center. Includes psychiatry and medication management.</p>
+                        <a href="https://shs.tamu.edu" target="_blank">shs.tamu.edu</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🤝</span>
+                    <div class="resource-item-content">
+                        <h4>Aggie Courage — Peer Support</h4>
+                        <p>A peer to peer mental health support program where trained student volunteers provide support and connection.</p>
+                        <a href="https://scs.tamu.edu" target="_blank">Learn More</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🌐</span>
+                    <div class="resource-item-content">
+                        <h4>WellTrack — Online Mental Health</h4>
+                        <p>Free online mental health tool available to all A&M students with self assessments, therapy programs, and mood tracking.</p>
+                        <a href="https://tamu.welltrack.com" target="_blank">tamu.welltrack.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown("""
+        <div class="resource-section">
+            <h3 style="color: #2d6a4f;">📱 Apps and Online Resources</h3>
+            <div class="resource-card-grid">
+                <div class="resource-item">
+                    <span class="resource-item-icon">💬</span>
+                    <div class="resource-item-content">
+                        <h4>Crisis Text Line</h4>
+                        <p>Text HOME to 741741 for free, confidential crisis support from a trained counselor anytime.</p>
+                        <a href="https://www.crisistextline.org" target="_blank">crisistextline.org</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🧘</span>
+                    <div class="resource-item-content">
+                        <h4>Headspace</h4>
+                        <p>Guided meditation, sleep tools, and stress management. Many universities offer free access — check with Student Health.</p>
+                        <a href="https://www.headspace.com" target="_blank">headspace.com</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🌙</span>
+                    <div class="resource-item-content">
+                        <h4>Calm</h4>
+                        <p>Sleep stories, breathing exercises, and meditation sessions designed to reduce anxiety and improve sleep quality.</p>
+                        <a href="https://www.calm.com" target="_blank">calm.com</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">💙</span>
+                    <div class="resource-item-content">
+                        <h4>BetterHelp</h4>
+                        <p>Affordable online therapy with licensed therapists. A good option if campus counseling has a waitlist.</p>
+                        <a href="https://www.betterhelp.com" target="_blank">betterhelp.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with tab3:
+        st.markdown(" ")
+
+        st.markdown("""
+        <div class="resource-section">
+            <h3 style="color: #2d6a4f;">📖 Texas A&M Academic Support</h3>
+            <div class="resource-card-grid">
+                <div class="resource-item">
+                    <span class="resource-item-icon">✍️</span>
+                    <div class="resource-item-content">
+                        <h4>University Writing Center</h4>
+                        <p>Free writing consultations for any assignment at any stage of the writing process. Highly recommended before submitting major papers.</p>
+                        <a href="https://writingcenter.tamu.edu" target="_blank">writingcenter.tamu.edu</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">📐</span>
+                    <div class="resource-item-content">
+                        <h4>Academic Success Center</h4>
+                        <p>Tutoring, academic coaching, study skills workshops, and supplemental instruction for challenging courses.</p>
+                        <a href="https://success.tamu.edu" target="_blank">success.tamu.edu</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🖥️</span>
+                    <div class="resource-item-content">
+                        <h4>Canvas — Course Management</h4>
+                        <p>All your course materials, assignments, grades, and announcements live here. Check it every day.</p>
+                        <a href="https://canvas.tamu.edu" target="_blank">canvas.tamu.edu</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🗓️</span>
+                    <div class="resource-item-content">
+                        <h4>Howdy Portal</h4>
+                        <p>Registration, financial aid, transcripts, and official university business all live in your Howdy portal.</p>
+                        <a href="https://howdy.tamu.edu" target="_blank">howdy.tamu.edu</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">♿</span>
+                    <div class="resource-item-content">
+                        <h4>Disability Resources</h4>
+                        <p>Academic accommodations, assistive technology, and support services for students with disabilities.</p>
+                        <a href="https://disability.tamu.edu" target="_blank">disability.tamu.edu</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🌍</span>
+                    <div class="resource-item-content">
+                        <h4>International Student Services</h4>
+                        <p>Visa support, cultural adjustment resources, and advising specifically for international students at A&M.</p>
+                        <a href="https://oiss.tamu.edu" target="_blank">oiss.tamu.edu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown("""
+        <div class="resource-section">
+            <h3 style="color: #2d6a4f;">📱 Study and Productivity Tools</h3>
+            <div class="resource-card-grid">
+                <div class="resource-item">
+                    <span class="resource-item-icon">🍅</span>
+                    <div class="resource-item-content">
+                        <h4>Pomofocus</h4>
+                        <p>Free Pomodoro timer to help you study in focused 25 minute blocks with short breaks built in.</p>
+                        <a href="https://pomofocus.io" target="_blank">pomofocus.io</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🃏</span>
+                    <div class="resource-item-content">
+                        <h4>Anki</h4>
+                        <p>Free flashcard app that uses spaced repetition to help you retain information far more effectively than rereading notes.</p>
+                        <a href="https://apps.ankiweb.net" target="_blank">apps.ankiweb.net</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">📝</span>
+                    <div class="resource-item-content">
+                        <h4>Notion</h4>
+                        <p>Free all in one workspace for notes, to do lists, project planning, and organizing your entire academic life.</p>
+                        <a href="https://www.notion.so" target="_blank">notion.so</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🎵</span>
+                    <div class="resource-item-content">
+                        <h4>Lofi Girl</h4>
+                        <p>Free 24 hour lo-fi music stream on YouTube designed specifically to help you focus while studying.</p>
+                        <a href="https://www.youtube.com/@LofiGirl" target="_blank">YouTube — Lofi Girl</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with tab4:
+        st.markdown(" ")
+
+        st.markdown("""
+        <div class="tip-banner">
+            <p>Your BH advisor and the Mays Career Management Center are your two most valuable career
+            resources at Texas A&M. Use both of them regularly, not just when you are panicking about
+            finding a job. Building those relationships early makes every step of recruiting easier.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown("""
+        <div class="resource-section">
+            <h3 style="color: #2d6a4f;">🏫 Texas A&M Career Resources</h3>
+            <div class="resource-card-grid">
+                <div class="resource-item">
+                    <span class="resource-item-icon">💼</span>
+                    <div class="resource-item-content">
+                        <h4>HireAggies</h4>
+                        <p>The official Texas A&M recruiting portal. Set up your profile early and check it regularly for internship and job postings.</p>
+                        <a href="https://hireaggies.com" target="_blank">hireaggies.com</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🎯</span>
+                    <div class="resource-item-content">
+                        <h4>Mays Career Management Center</h4>
+                        <p>Resume reviews, mock interviews, career advising, and recruiting events specifically for Mays business students.</p>
+                        <a href="https://mays.tamu.edu/career-management-center/" target="_blank">Mays CMC</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🤝</span>
+                    <div class="resource-item-content">
+                        <h4>12th Man Foundation — Aggie Network</h4>
+                        <p>Connect with Aggie alumni across industries for networking, mentorship, and informational interviews.</p>
+                        <a href="https://www.aggienetwork.com" target="_blank">aggienetwork.com</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">📅</span>
+                    <div class="resource-item-content">
+                        <h4>Mays Career Fairs</h4>
+                        <p>Attend every career fair available to you including the Mays Freshman Career Fair in your first semester.</p>
+                        <a href="https://mays.tamu.edu/career-management-center/" target="_blank">View Upcoming Fairs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown("""
+        <div class="resource-section">
+            <h3 style="color: #2d6a4f;">🌐 External Career Tools</h3>
+            <div class="resource-card-grid">
+                <div class="resource-item">
+                    <span class="resource-item-icon">🔗</span>
+                    <div class="resource-item-content">
+                        <h4>LinkedIn</h4>
+                        <p>Build your professional profile, connect with Aggie alumni, and discover internship opportunities.</p>
+                        <a href="https://www.linkedin.com" target="_blank">linkedin.com</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🔍</span>
+                    <div class="resource-item-content">
+                        <h4>Handshake</h4>
+                        <p>College focused job and internship platform with opportunities specifically targeted at university students.</p>
+                        <a href="https://joinhandshake.com" target="_blank">joinhandshake.com</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">🎤</span>
+                    <div class="resource-item-content">
+                        <h4>Big Interview</h4>
+                        <p>Practice your interview answers with AI feedback. Great for preparing before career fairs and real interviews.</p>
+                        <a href="https://biginterview.com" target="_blank">biginterview.com</a>
+                    </div>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-item-icon">📄</span>
+                    <div class="resource-item-content">
+                        <h4>Canva Resume Builder</h4>
+                        <p>Free professional resume templates that are clean, modern, and easy to customize for each application.</p>
+                        <a href="https://www.canva.com/resumes" target="_blank">canva.com/resumes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
