@@ -189,7 +189,7 @@ if page == "🏠 Home":
 
     <div class="hero">
         <h1>🌿 BH Student Wellness App</h1>
-        <p>Your daily guide to thriving in college — mind, body, and beyond.</p>
+        <p>Your daily guide to managing stress in college.</p>
     </div>
     """, unsafe_allow_html=True)
 
