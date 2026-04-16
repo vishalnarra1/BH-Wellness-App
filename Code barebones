@@ -1,0 +1,422 @@
+import streamlit as st
+import json
+import os
+from datetime import date
+
+st.set_page_config(page_title="BH Student Wellness App")
+
+page = st.sidebar.radio("Navigation", [
+    "Home",
+    "Daily Check-In",
+    "8 Wellness Pillars",
+    "Stressor Topics",
+    "Yoga and Meditation",
+    "Resource Hub",
+])
+
+# ── HOME ──────────────────────────────────────────────────────────────────────
+if page == "Home":
+    st.title("BH Student Wellness App")
+    st.write("Your daily guide to managing stress in college.")
+
+# ── DAILY CHECK-IN ────────────────────────────────────────────────────────────
+elif page == "Daily Check-In":
+    st.title("Daily Check-In")
+
+    mood = st.slider("Rate your mood (1 = struggling, 5 = great)", 1, 5, 3)
+
+    focus = st.selectbox("What is your biggest wellness focus today?", [
+        "Physical wellness",
+        "Emotional wellness",
+        "Social wellness",
+        "Intellectual wellness",
+        "Occupational wellness",
+        "Spiritual wellness",
+        "Environmental wellness",
+        "Financial wellness",
+    ])
+
+    goal = st.text_input("My goal today is...")
+
+    if st.button("Save Check-In"):
+        if not goal:
+            st.warning("Please enter a goal before saving.")
+        else:
+            entry = {"date": str(date.today()), "mood": mood, "focus": focus, "goal": goal}
+            filepath = "data/checkins.json"
+            os.makedirs("data", exist_ok=True)
+            all_entries = []
+            if os.path.exists(filepath):
+                with open(filepath) as f:
+                    all_entries = json.load(f)
+            all_entries.append(entry)
+            with open(filepath, "w") as f:
+                json.dump(all_entries, f, indent=4)
+
+            pillar_map = {k + " wellness": k.capitalize() for k in
+                          ["physical","emotional","social","intellectual",
+                           "occupational","spiritual","environmental","financial"]}
+            st.session_state["wellness_pillar"] = pillar_map.get(focus.lower(), focus)
+            st.success("Check-in saved! Head to 8 Wellness Pillars for personalized tips.")
+            st.balloons()
+
+# ── 8 WELLNESS PILLARS ────────────────────────────────────────────────────────
+elif page == "8 Wellness Pillars":
+    st.title("8 Wellness Pillars")
+
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        if st.button("🏃 Physical",     use_container_width=True): st.session_state["pillar"] = "Physical"
+        if st.button("🤝 Social",       use_container_width=True): st.session_state["pillar"] = "Social"
+    with col2:
+        if st.button("💛 Emotional",    use_container_width=True): st.session_state["pillar"] = "Emotional"
+        if st.button("💡 Intellectual", use_container_width=True): st.session_state["pillar"] = "Intellectual"
+    with col3:
+        if st.button("💼 Occupational", use_container_width=True): st.session_state["pillar"] = "Occupational"
+        if st.button("🌿 Environmental",use_container_width=True): st.session_state["pillar"] = "Environmental"
+    with col4:
+        if st.button("🕊️ Spiritual",   use_container_width=True): st.session_state["pillar"] = "Spiritual"
+        if st.button("💰 Financial",    use_container_width=True): st.session_state["pillar"] = "Financial"
+
+    if "wellness_pillar" in st.session_state:
+        pillar = st.session_state.pop("wellness_pillar")
+        st.session_state["pillar"] = pillar
+
+    pillar = st.session_state.get("pillar")
+    if not pillar:
+        st.info("Select a pillar above to get started.")
+        st.stop()
+
+    st.subheader(pillar + " Wellness")
+
+    PILLARS = {
+        "Physical": {
+            "tips": [
+                "Aim for 30 minutes of movement per day.",
+                "Use the campus rec center during slow hours.",
+                "Sleep 7–9 hours per night. Avoid all-nighters.",
+                "Keep a water bottle with you during class.",
+                "Eat at least one nutritious meal on busy days.",
+                "Stretch 5–10 minutes before bed.",
+                "Take stairs and walk to class when possible.",
+                "Avoid your phone 30 minutes before bed.",
+            ],
+            "win": "Take a 10-minute walk outside right now.",
+            "resources": [
+                ("CDC Physical Activity Guidelines", "https://www.cdc.gov/physicalactivity"),
+                ("Sleep Foundation", "https://www.sleepfoundation.org/teens-and-sleep"),
+                ("MyFitnessPal", "https://www.myfitnesspal.com"),
+                ("Nike Training Club", "https://www.nike.com/ntc-app"),
+            ],
+        },
+        "Emotional": {
+            "tips": [
+                "Name your emotions instead of suppressing them.",
+                "Journal for 5 minutes each day.",
+                "Talk to someone you trust when something is bothering you.",
+                "Set boundaries with people and commitments that drain your energy.",
+                "Talk to yourself like you would a close friend.",
+                "Recognize when you are overwhelmed and give yourself time to destress.",
+                "Notice how social media makes you feel and limit what upsets you.",
+                "Express yourself creatively through art, music, or writing.",
+            ],
+            "win": "Write three things you feel right now and one thing you're grateful for.",
+            "resources": [
+                ("Crisis Text Line (text HOME to 741741)", "https://www.crisistextline.org"),
+                ("988 Suicide & Crisis Lifeline", "https://988lifeline.org"),
+                ("Calm App", "https://www.calm.com"),
+                ("BetterHelp", "https://www.betterhelp.com"),
+            ],
+        },
+        "Social": {
+            "tips": [
+                "Introduce yourself to at least one new person per week.",
+                "Join one student organization that genuinely interests you.",
+                "Show up to events consistently even when you don't feel like it.",
+                "Put your phone down during meals and social situations.",
+                "Reach out to old friends and family — relationships take effort.",
+                "Resolve conflict directly and calmly rather than avoiding it.",
+                "Don't compare your social life to what you see on social media.",
+                "Ask a classmate to study or grab coffee.",
+            ],
+            "win": "Text or call someone you haven't talked to in a while.",
+            "resources": [
+                ("Meetup", "https://www.meetup.com"),
+                ("InterNations", "https://www.internations.org"),
+                ("Bumble BFF", "https://bumble.com/bff"),
+                ("TAMU Student Organizations", "https://stuact.tamu.edu"),
+            ],
+        },
+        "Intellectual": {
+            "tips": [
+                "Read something outside your major every week.",
+                "Attend office hours — your professors want to help.",
+                "Use active recall instead of re-reading notes.",
+                "Take breaks every 45–60 minutes while studying.",
+                "Teach a concept to someone else to test your understanding.",
+                "Seek out perspectives different from your own.",
+                "Listen to educational podcasts during downtime.",
+                "Challenge yourself with a new skill or hobby.",
+            ],
+            "win": "Spend 20 minutes reading or learning something just out of curiosity.",
+            "resources": [
+                ("Khan Academy", "https://www.khanacademy.org"),
+                ("Coursera", "https://www.coursera.org"),
+                ("TED Talks", "https://www.ted.com/talks"),
+                ("Pocket (read-later app)", "https://getpocket.com"),
+            ],
+        },
+        "Occupational": {
+            "tips": [
+                "Update your resume at least once a semester.",
+                "Attend at least one career fair per year.",
+                "Network with alumni through LinkedIn and the Aggie Network.",
+                "Do at least one internship before you graduate.",
+                "Clarify what kind of work energizes you versus drains you.",
+                "Take advantage of free career advising at the Mays CMC.",
+                "Build skills outside the classroom through clubs and projects.",
+                "Set a 5-year goal and work backwards to today.",
+            ],
+            "win": "Update one section of your resume or LinkedIn profile right now.",
+            "resources": [
+                ("HireAggies", "https://hireaggies.com"),
+                ("Mays Career Management Center", "https://mays.tamu.edu/career-management-center/"),
+                ("LinkedIn", "https://www.linkedin.com"),
+                ("Handshake", "https://joinhandshake.com"),
+            ],
+        },
+        "Spiritual": {
+            "tips": [
+                "Spend time identifying your core values.",
+                "Volunteer for a cause that matters to you.",
+                "Practice mindfulness or meditation for 10 minutes a day.",
+                "Explore different philosophies with an open mind.",
+                "Spend time outdoors to ground your sense of perspective.",
+                "Reflect on whether your daily actions align with your values.",
+                "Surround yourself with people who inspire you to grow.",
+                "Create a morning or evening ritual that centers you.",
+            ],
+            "win": "Write down your top five personal values and reflect on today.",
+            "resources": [
+                ("Insight Timer", "https://insighttimer.com"),
+                ("Volunteer Match", "https://www.volunteermatch.org"),
+                ("The School of Life", "https://www.theschooloflife.com"),
+                ("Greater Good in Action", "https://ggia.berkeley.edu"),
+            ],
+        },
+        "Environmental": {
+            "tips": [
+                "Keep your room clean — make your bed every morning.",
+                "Personalize your space with things that make you feel calm.",
+                "Find your best study environment and use it consistently.",
+                "Spend at least 15 minutes outside each day.",
+                "Reduce clutter — physical mess fosters mental mess.",
+                "Adopt small eco-friendly habits like recycling.",
+                "Separate your doom-scrolling space from your study/sleep space.",
+                "Avoid harsh lighting in the evening.",
+            ],
+            "win": "Spend 10 minutes cleaning and organizing your desk right now.",
+            "resources": [
+                ("Apartment Therapy", "https://www.apartmenttherapy.com"),
+                ("Lofi Girl (focus music)", "https://www.youtube.com/@LofiGirl"),
+                ("Earth Day Network", "https://www.earthday.org"),
+                ("iNaturalist", "https://www.inaturalist.org"),
+            ],
+        },
+        "Financial": {
+            "tips": [
+                "Build a monthly budget using the 50/30/20 rule.",
+                "Split shared expenses with roommates using a shared account.",
+                "Apply for every scholarship and grant you're eligible for.",
+                "Pay your credit card in full every month.",
+                "Cook at home — eating out is one of the biggest student expenses.",
+                "Use student discounts wherever you can.",
+                "Start an emergency fund even if contributions are small.",
+                "Avoid lifestyle inflation as your income grows.",
+            ],
+            "win": "Write down your monthly income and your three biggest expenses right now.",
+            "resources": [
+                ("Mint (budgeting)", "https://mint.intuit.com"),
+                ("CFPB Student Tools", "https://www.consumerfinance.gov/consumer-tools/student-loans/"),
+                ("NerdWallet", "https://www.nerdwallet.com"),
+                ("TAMU Financial Aid", "https://financialaid.tamu.edu"),
+            ],
+        },
+    }
+
+    data = PILLARS.get(pillar, {})
+
+    st.markdown("**Tips**")
+    for tip in data.get("tips", []):
+        st.write(f"- {tip}")
+
+    st.markdown("**Quick Win**")
+    st.info(data.get("win", ""))
+
+    st.markdown("**Resources**")
+    for name, url in data.get("resources", []):
+        st.markdown(f"- [{name}]({url})")
+
+# ── STRESSOR TOPICS ───────────────────────────────────────────────────────────
+elif page == "Stressor Topics":
+    st.title("Stressor Topics")
+
+    topic = st.selectbox("Choose a stressor:", [
+        "Academic Pressure",
+        "Financial Stress",
+        "Social Anxiety",
+        "Time Management",
+        "Career Uncertainty",
+        "Homesickness",
+        "Relationship Stress",
+        "Health and Sleep",
+    ])
+
+    STRESSORS = {
+        "Academic Pressure": [
+            "Break large tasks into small daily actions.",
+            "Use the Pomodoro method — 25 min work, 5 min break.",
+            "Go to office hours before a test, not after.",
+            "Study in groups for subjects you find difficult.",
+            "Use the university Writing Center and tutoring services.",
+        ],
+        "Financial Stress": [
+            "Visit the TAMU financial aid office for emergency resources.",
+            "Apply for scholarships each semester — many go unclaimed.",
+            "Use student discounts at every opportunity.",
+            "Track your spending with a free budgeting app.",
+            "Look into part-time jobs or paid research opportunities on campus.",
+        ],
+        "Social Anxiety": [
+            "Start with low-stakes interactions like saying hi to a classmate.",
+            "Join a club where you share a common interest with others.",
+            "Remember that most people are focused on themselves, not judging you.",
+            "Practice breathing exercises before social events.",
+            "Talk to a counselor at the TAMU counseling center.",
+        ],
+        "Time Management": [
+            "Use a weekly planner — paper or digital — every Sunday.",
+            "Time-block your schedule including meals and breaks.",
+            "Identify your most productive hours and protect them.",
+            "Learn to say no to commitments that don't align with your priorities.",
+            "Use the Eisenhower matrix to prioritize urgent vs. important tasks.",
+        ],
+        "Career Uncertainty": [
+            "Visit the Mays Career Management Center early and often.",
+            "Do informational interviews with alumni in fields you're curious about.",
+            "Internships are the best way to test a career path cheaply.",
+            "It's okay not to know exactly what you want — explore intentionally.",
+            "Focus on building skills, not just a title.",
+        ],
+        "Homesickness": [
+            "Schedule regular video calls with family and friends from home.",
+            "Build a local support network by joining clubs or organizations.",
+            "Create routines that give your week structure.",
+            "Bring items from home that make your space feel familiar.",
+            "Give yourself time — homesickness usually fades as you settle in.",
+        ],
+        "Relationship Stress": [
+            "Communicate directly and calmly rather than letting issues fester.",
+            "Recognize whether relationships are draining or energizing you.",
+            "Set clear boundaries and hold them without guilt.",
+            "Seek counseling if a relationship is affecting your mental health.",
+            "Focus on quality over quantity when it comes to friendships.",
+        ],
+        "Health and Sleep": [
+            "Prioritize 7–9 hours of sleep — it affects everything else.",
+            "See a doctor at TAMU Student Health Services if something is wrong.",
+            "Avoid caffeine after 2 PM if you struggle to fall asleep.",
+            "Exercise regularly — even a 20-minute walk helps.",
+            "Don't skip meals, especially breakfast.",
+        ],
+    }
+
+    st.markdown("**Tips for " + topic + "**")
+    for tip in STRESSORS.get(topic, []):
+        st.write(f"- {tip}")
+
+# ── YOGA AND MEDITATION ───────────────────────────────────────────────────────
+elif page == "Yoga and Meditation":
+    st.title("Yoga and Meditation")
+
+    category = st.radio("Choose a category:", ["Yoga", "Meditation", "Breathing"])
+
+    SESSIONS = {
+        "Yoga": [
+            ("Yoga for Stress Relief (20 min)", "https://www.youtube.com/watch?v=hJbRpHZr_d0"),
+            ("Morning Yoga for Energy (15 min)", "https://www.youtube.com/watch?v=UEEsdXn8oG8"),
+            ("Full Body Stretch for Students (10 min)", "https://www.youtube.com/watch?v=sTANio_2E0Q"),
+        ],
+        "Meditation": [
+            ("Guided Meditation for Anxiety (10 min)", "https://www.youtube.com/watch?v=O-6f5wQXSu8"),
+            ("Body Scan Meditation for Sleep (20 min)", "https://www.youtube.com/watch?v=T0nuKBVQG60"),
+            ("Mindfulness Meditation for Focus (15 min)", "https://www.youtube.com/watch?v=ZToicYcHIOU"),
+        ],
+        "Breathing": [
+            ("Box Breathing for Calm (5 min)", "https://www.youtube.com/watch?v=tEmt1Znux58"),
+            ("4-7-8 Breathing Technique (5 min)", "https://www.youtube.com/watch?v=gz4G31LGyog"),
+            ("Deep Breathing for Stress (10 min)", "https://www.youtube.com/watch?v=acUZdGd_3Dg"),
+        ],
+    }
+
+    for title, url in SESSIONS.get(category, []):
+        st.markdown(f"- [{title}]({url})")
+
+# ── RESOURCE HUB ──────────────────────────────────────────────────────────────
+elif page == "Resource Hub":
+    st.title("Resource Hub")
+
+    tab1, tab2, tab3, tab4 = st.tabs(["Mental Health", "Campus Support", "Academic", "Career"])
+
+    with tab1:
+        st.subheader("Mental Health")
+        resources = [
+            ("988 Suicide & Crisis Lifeline (call or text 988)", "https://988lifeline.org"),
+            ("Crisis Text Line (text HOME to 741741)", "https://www.crisistextline.org"),
+            ("TAMU Counseling & Psychological Services", "https://caps.tamu.edu"),
+            ("TAMU Student Health Services", "https://shs.tamu.edu"),
+            ("Headspace", "https://www.headspace.com"),
+            ("Calm", "https://www.calm.com"),
+        ]
+        for name, url in resources:
+            st.markdown(f"- [{name}]({url})")
+
+    with tab2:
+        st.subheader("Campus Support")
+        resources = [
+            ("TAMU Dean of Student Life", "https://deanofstudents.tamu.edu"),
+            ("TAMU Food Pantry", "https://deanofstudents.tamu.edu/emergency-services/food-pantry/"),
+            ("TAMU Student Legal Services", "https://sls.tamu.edu"),
+            ("TAMU Recreational Sports", "https://recsports.tamu.edu"),
+            ("TAMU Financial Aid", "https://financialaid.tamu.edu"),
+        ]
+        for name, url in resources:
+            st.markdown(f"- [{name}]({url})")
+
+    with tab3:
+        st.subheader("Academic Support")
+        resources = [
+            ("University Writing Center", "https://writingcenter.tamu.edu"),
+            ("Academic Success Center", "https://success.tamu.edu"),
+            ("Canvas", "https://canvas.tamu.edu"),
+            ("Howdy Portal", "https://howdy.tamu.edu"),
+            ("Disability Resources", "https://disability.tamu.edu"),
+            ("Pomofocus (Pomodoro timer)", "https://pomofocus.io"),
+            ("Anki (flashcards)", "https://apps.ankiweb.net"),
+        ]
+        for name, url in resources:
+            st.markdown(f"- [{name}]({url})")
+
+    with tab4:
+        st.subheader("Career Resources")
+        resources = [
+            ("HireAggies", "https://hireaggies.com"),
+            ("Mays Career Management Center", "https://mays.tamu.edu/career-management-center/"),
+            ("Aggie Network", "https://www.aggienetwork.com"),
+            ("LinkedIn", "https://www.linkedin.com"),
+            ("Handshake", "https://joinhandshake.com"),
+            ("Big Interview", "https://biginterview.com"),
+            ("Canva Resume Builder", "https://www.canva.com/resumes"),
+        ]
+        for name, url in resources:
+            st.markdown(f"- [{name}]({url})")
